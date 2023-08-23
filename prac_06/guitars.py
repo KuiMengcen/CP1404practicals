@@ -23,3 +23,4 @@ for i, guitar in enumerate(guitar_list, 0):
     else:
         vintage_string = ""
     print(f"Guitar {i+1}: {guitar.name:>20} ({guitar.year}), worth ${guitar.cost:10,.2f}{vintage_string}")
+
