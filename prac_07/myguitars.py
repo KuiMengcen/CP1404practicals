@@ -41,3 +41,4 @@ with open("guitars.csv", "a") as file:
         print(f"{guitar.name},{guitar.year},{guitar.cost}", file=file)
 
 in_file.close()
+
