@@ -10,4 +10,3 @@ print("The dynamically typed languages are:")
 for language in language_list:
     if language.is_dynamic():
         print(language.field)
-
