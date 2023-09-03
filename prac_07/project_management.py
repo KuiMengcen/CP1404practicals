@@ -5,7 +5,6 @@ MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter p
 
 
 def main():
-    """Run the menu and get option from users."""
     options = ("l", "s", "d", "f", "a", "u", 'q')
     filename = "projects.txt"
     projects = []
@@ -41,7 +40,6 @@ def main():
 
 
 def load_projects(filename):
-    """Load details from projects.txt and store into a projects list."""
     projects = []
     in_file = open(filename, 'r')
     in_file.readline()
@@ -63,7 +61,6 @@ def load_projects(filename):
 
 
 def save_projects(filename, projects):
-    """Save details into projects.txt from projects list."""
     out_file = open(filename, 'w')
     print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
     for project in projects:
@@ -79,7 +76,6 @@ def save_projects(filename, projects):
 
 
 def display_projects(projects):
-    """Display projects details by Incomplete or Completed."""
     projects.sort()
     print("Incomplete projects:")
     for project in projects:
@@ -92,7 +88,6 @@ def display_projects(projects):
 
 
 def filter_projects_by_date(projects, start_after_date):
-    """Filter project after user input a date, which is sorted by date."""
     dates = []
     for project in projects:
         if project.compare_date_with_input_date(start_after_date):
@@ -105,7 +100,6 @@ def filter_projects_by_date(projects, start_after_date):
 
 
 def add_new_project():
-    """Add new project into the projects list."""
     print("Let's add a new project")
     name = input("Name: ")
     start_date = input("Start date (dd/mm/yy): ")
