@@ -45,15 +45,11 @@ def load_projects(filename):
     in_file.readline()
     for line in in_file:
         parts = line.strip().split('\t')
-
-        # Below figures out the attributes of the project object.
         name = parts[0]
         start_date = parts[1]
         priority = int(parts[2])
         cost_estimate = float(parts[3])
         completion_percentage = int(parts[4])
-
-        # Append project element into projects list.
         project = Project(name, start_date, priority, cost_estimate, completion_percentage)
         projects.append(project)
     in_file.close()
@@ -64,7 +60,6 @@ def save_projects(filename, projects):
     out_file = open(filename, 'w')
     print("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage", file=out_file)
     for project in projects:
-        # Below write project's attribute into projects.txt
         name = project.name
         start_date = project.start_date_str
         priority = project.priority
