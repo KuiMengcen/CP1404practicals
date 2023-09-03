@@ -5,37 +5,36 @@ MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter p
 
 
 def main():
-    options = ("l", "s", "d", "f", "a", "u", 'q')
     filename = "projects.txt"
-    projects = []
+    projects = load_projects(filename)
 
     print(MENU)
-    option = input(">>> ").lower()
-    while option != options[-1]:
-        if option == options[0]:
+    choice = input(">>> ").strip().lower()
+    while choice != "q":
+        if choice == "l":
             projects = load_projects(filename)
-
-        elif option == options[1]:
+        elif choice == "s":
             save_projects(filename, projects)
-
-        elif option == options[2]:
+        elif choice == "d":
             display_projects(projects)
-
-        elif option == options[3]:
-            start_after_date = input("Show projects that start after date (dd/mm/yy):")
-            filter_projects_by_date(projects, start_after_date)
-
-        elif option == options[4]:
+        elif choice == "f":
+            date_str = input("Show projects that start after date (dd/mm/yyyy): ")
+            try:
+                date = datetime.datetime.strptime(date_str, "%d/%m/%Y").date()
+                filter_projects_by_date(projects, date)
+                display_projects(projects)
+            except ValueError:
+                print("Invalid date format. Please use dd/mm/yyyy.")
+        elif choice == "a":
             new_project = add_new_project()
             projects.append(new_project)
-
-        elif option == options[5]:
+        elif choice == "u":
             update_project(projects)
-
         else:
-            print("Invalid input.")
+            print("Invalid choice.")
         print(MENU)
-        option = input(">>> ").lower()
+        choice = input(">>> ").strip().lower()
+    save_projects(filename, projects)
     print("Thank you for using custom-built project management software.")
 
 
