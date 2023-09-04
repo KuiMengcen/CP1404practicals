@@ -20,7 +20,7 @@ print(MENU)
 choice = input(">>> ").upper()
 while choice != "Q":
     if choice == "H":
-        print("Hello",Name)
+        print("Hello", Name)
     elif choice == "G":
         print("Goodbye", Name)
     else:
