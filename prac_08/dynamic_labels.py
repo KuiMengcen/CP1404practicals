@@ -8,7 +8,7 @@ NEW_COLOUR = (1, 0, 0, 1)
 class DynamicWidget(App):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.names = ["Anan", "Bob", "Hattie"]
+        self.names = ["Anna", "Bob", "Hattie"]
 
     def build(self):
         self.title = "Dynamic Labels"
