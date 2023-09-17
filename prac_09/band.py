@@ -18,3 +18,4 @@ class Band:
             else:
                 print(f"{vars(band)['name']} is playing: {vars(band)['instruments'][0]}")
         return ""
+

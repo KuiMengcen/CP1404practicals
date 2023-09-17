@@ -67,4 +67,5 @@ def check_taxi_choice(prompt):
         print("Invalid taxi choice")
         return None
 
+
 main()
